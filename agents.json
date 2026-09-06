@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-06 05:33 UTC",
+  "last_updated": "2026-09-06 05:45 UTC",
   "agents": [
     {
       "browser": "Google Chrome (Windows)",
@@ -12,9 +12,44 @@
       "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Safari/537.36"
     },
     {
+      "browser": "Google Chrome (Linux)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Safari/537.36"
+    },
+    {
       "browser": "Google Chrome (Android)",
       "platform": "Mobile",
-      "ua": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Mobile Safari/537.36"
+      "ua": "Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Mobile Safari/537.36"
+    },
+    {
+      "browser": "Mozilla Firefox (Windows)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0"
+    },
+    {
+      "browser": "Mozilla Firefox (Mac)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14.7; rv:132.0) Gecko/20100101 Firefox/132.0"
+    },
+    {
+      "browser": "Mozilla Firefox (Android)",
+      "platform": "Mobile",
+      "ua": "Mozilla/5.0 (Android 14; Mobile; rv:132.0) Gecko/132.0 Firefox/132.0"
+    },
+    {
+      "browser": "Microsoft Edge (Windows)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Safari/537.36 Edg/153.0.8010.27"
+    },
+    {
+      "browser": "Microsoft Edge (Mac)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Safari/537.36 Edg/153.0.8010.27"
+    },
+    {
+      "browser": "Apple Safari (Mac Desktop)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15"
     },
     {
       "browser": "Apple Safari (iPhone / iOS)",
@@ -25,6 +60,11 @@
       "browser": "Apple Safari (iPad / iPadOS)",
       "platform": "Tablet",
       "ua": "Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
+    },
+    {
+      "browser": "Opera (Windows)",
+      "platform": "Desktop",
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.27 Safari/537.36 OPR/114.0.0.0"
     }
   ]
 }
