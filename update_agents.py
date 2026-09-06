@@ -32,6 +32,16 @@ data = {
             "browser": "Google Chrome (Android)",
             "platform": "Mobile",
             "ua": f"Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_ver} Mobile Safari/537.36"
+        },
+        {
+            "browser": "Apple Safari (iPhone / iOS)",
+            "platform": "Mobile",
+            "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
+        },
+        {
+            "browser": "Apple Safari (iPad / iPadOS)",
+            "platform": "Tablet",
+            "ua": "Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1"
         }
     ]
 }
@@ -39,4 +49,4 @@ data = {
 with open("agents.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=2)
 
-print("agents.json created successfully!")
+print("agents.json with iOS updated successfully!")
