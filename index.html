@@ -5,44 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Latest Browser User-Agents</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; padding: 20px; color: #333; margin: 0; }
-    .container { max-width: 800px; margin: 40px auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    h1 { text-align: center; color: #1a73e8; margin-bottom: 5px; }
-    .update-time { text-align: center; color: #666; font-size: 14px; margin-bottom: 25px; }
-    .card { background: #fafafa; border: 1px solid #e1e4e8; padding: 18px; border-radius: 8px; margin-bottom: 16px; }
-    .card h3 { margin: 0 0 10px 0; font-size: 16px; color: #222; }
-    .ua-box { background: #ffffff; border: 1px solid #ddd; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 13px; word-break: break-all; }
-    button { margin-top: 12px; background: #1a73e8; color: #fff; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 500; }
-    button:hover { background: #1557b0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #eef2f6; padding: 20px; color: #333; margin: 0; }
+    .container { max-width: 900px; margin: 30px auto; }
+    header { text-align: center; margin-bottom: 25px; }
+    h1 { color: #1a73e8; margin-bottom: 6px; }
+    .update-time { color: #666; font-size: 14px; }
+    
+    /* সার্চ বার */
+    .search-box { width: 100%; box-sizing: border-box; padding: 12px 18px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; margin-bottom: 25px; transition: 0.2s; }
+    .search-box:focus { border-color: #1a73e8; background: #fff; }
+
+    /* মূল ক্যাটাগরি বক্স/সেকশন */
+    .section-panel { background: #ffffff; border-radius: 12px; padding: 22px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .section-title { font-size: 20px; color: #0f172a; margin: 0 0 16px 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+
+    /* সিঙ্গেল আইটেম কার্ড */
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 14px 16px; border-radius: 8px; margin-bottom: 12px; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .browser-name { font-weight: 600; font-size: 15px; color: #1e293b; }
+    .badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: #e2e8f0; color: #475569; font-weight: bold; }
+    .ua-box { background: #ffffff; border: 1px solid #cbd5e1; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 13px; word-break: break-all; color: #334155; }
+    .copy-btn { margin-top: 10px; background: #1a73e8; color: #fff; border: none; padding: 6px 14px; border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: 500; }
+    .copy-btn:hover { background: #1557b0; }
+    .empty-msg { color: #94a3b8; font-style: italic; font-size: 14px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Latest Browser User-Agents</h1>
-    <div class="update-time" id="updated">লোড হচ্ছে...</div>
-    <div id="list"></div>
+    <header>
+      <h1>Latest Browser User-Agents</h1>
+      <div class="update-time" id="updated">লোড হচ্ছে...</div>
+    </header>
+
+    <!-- সার্চ বক্স -->
+    <input type="text" id="searchInput" class="search-box" placeholder="ব্রাউজার বা ওএস সার্চ করুন (যেমন: Chrome, Firefox, Windows, iOS)..." oninput="handleSearch()">
+
+    <!-- ডেক্সটপ সেকশন -->
+    <div class="section-panel">
+      <h2 class="section-title">💻 Windows & Desktop Agents</h2>
+      <div id="desktopList"></div>
+    </div>
+
+    <!-- মোবাইল ও ট্যাবলেট সেকশন -->
+    <div class="section-panel">
+      <h2 class="section-title">📱 Mobile & Phone Agents</h2>
+      <div id="mobileList"></div>
+    </div>
   </div>
 
   <script>
+    let allAgents = [];
+
+    // JSON ডেটা রিড করা
     fetch('agents.json?t=' + new Date().getTime())
       .then(res => res.json())
       .then(data => {
         document.getElementById('updated').innerText = 'সর্বশেষ আপডেট: ' + data.last_updated;
-        const listDiv = document.getElementById('list');
-        data.agents.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.innerHTML = `
-            <h3>${item.browser} <span style="font-size:12px; color:#888;">(${item.platform})</span></h3>
-            <div class="ua-box">${item.ua}</div>
-            <button onclick="navigator.clipboard.writeText('${item.ua}'); alert('User-Agent কপি করা হয়েছে!');">কপি করুন</button>
-          `;
-          listDiv.appendChild(card);
-        });
+        allAgents = data.agents;
+        renderBoxes(allAgents);
       })
-      .catch(err => {
-        document.getElementById('updated').innerText = 'ডেটা লোড হতে সমস্যা হয়েছে বা এখনও প্রথম আপডেট রান হয়নি।';
+      .catch(() => {
+        document.getElementById('updated').innerText = 'ডেটা লোড হতে সমস্যা হয়েছে।';
       });
+
+    // স্ক্রিনে কার্ডগুলো রেন্ডার করা
+    function renderBoxes(items) {
+      const desktopList = document.getElementById('desktopList');
+      const mobileList = document.getElementById('mobileList');
+
+      desktopList.innerHTML = '';
+      mobileList.innerHTML = '';
+
+      const desktops = items.filter(x => x.platform === 'Desktop');
+      const mobiles = items.filter(x => x.platform === 'Mobile' || x.platform === 'Tablet');
+
+      buildListHTML(desktops, desktopList);
+      buildListHTML(mobiles, mobileList);
+    }
+
+    function buildListHTML(list, container) {
+      if (list.length === 0) {
+        container.innerHTML = '<div class="empty-msg">কোনো রেজাল্ট পাওয়া যায়নি।</div>';
+        return;
+      }
+
+      list.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-header">
+            <span class="browser-name">${item.browser}</span>
+            <span class="badge">${item.platform}</span>
+          </div>
+          <div class="ua-box">${item.ua}</div>
+          <button class="copy-btn" onclick="copyUA('${item.ua}')">কপি করুন</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // রিয়েল-টাইম সার্চ ফিল্টারিং
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = allAgents.filter(item => 
+        item.browser.toLowerCase().includes(query) || 
+        item.ua.toLowerCase().includes(query) ||
+        item.platform.toLowerCase().includes(query)
+      );
+      renderBoxes(filtered);
+    }
+
+    // কপি বাটন ফাংশন
+    function copyUA(text) {
+      navigator.clipboard.writeText(text);
+      alert('User-Agent কপি করা হয়েছে!');
+    }
   </script>
 </body>
 </html>
