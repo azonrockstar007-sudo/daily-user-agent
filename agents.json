@@ -1,25 +1,25 @@
 {
-  "last_updated": "2026-09-09 00:24 UTC",
+  "last_updated": "2026-09-10 00:19 UTC",
   "agents": [
     {
       "browser": "Google Chrome (Windows)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36"
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36"
     },
     {
       "browser": "Google Chrome (Mac)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36"
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36"
     },
     {
       "browser": "Google Chrome (Linux)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36"
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36"
     },
     {
       "browser": "Google Chrome (Android)",
       "platform": "Mobile",
-      "ua": "Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Mobile Safari/537.36"
+      "ua": "Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Mobile Safari/537.36"
     },
     {
       "browser": "Mozilla Firefox (Windows)",
@@ -39,12 +39,12 @@
     {
       "browser": "Microsoft Edge (Windows)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36 Edg/153.0.8010.37"
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36 Edg/154.0.8037.17"
     },
     {
       "browser": "Microsoft Edge (Mac)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36 Edg/153.0.8010.37"
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36 Edg/154.0.8037.17"
     },
     {
       "browser": "Apple Safari (Mac Desktop)",
@@ -64,7 +64,7 @@
     {
       "browser": "Opera (Windows)",
       "platform": "Desktop",
-      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.37 Safari/537.36 OPR/114.0.0.0"
+      "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.17 Safari/537.36 OPR/114.0.0.0"
     }
   ]
 }
